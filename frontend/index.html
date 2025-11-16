@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chai Junction - Garam Chai. Local Vibes.</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <h1 class="logo">Chai Junction</h1>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section" style="background-image: url('public/assets/bg-image.jpg');">
+    <div class="hero-overlay">
+      <div class="hero-badge">🍵 Since 2020 - Serving Happiness</div>
+      <h2>Fresh Handcrafted Chai Every Day</h2>
+      <p>Made with real ingredients and served with warmth.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="openOrder()">Order Now</button>
+        <a href="#menu" class="btn-secondary">View Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-full">
+  <div class="about-content">
+    <div class="about-text">
+      <div class="about-badge">✨ Our Story</div>
+      <h2>Where Every Cup Tells a Story</h2>
+      <p>
+        At <strong>Chai Junction</strong>, we believe every cup of chai tells a story.  
+        Brewed with love, hand-crushed spices, and authentic ingredients, our chai is
+        made to bring warmth, connection, and comfort to your day.  
+        <br><br>
+        Whether you're here for a quick sip, a deep chat, or a quiet corner – this is your
+        everyday <em>Chai Adda</em>. We blend traditional Indian tea culture with a modern,
+        cozy ambiance that makes everyone feel at home.
+      </p>
+
+      <div class="feature-icons">
+        <div class="feature-item">
+          <span class="feature-emoji">🌿</span>
+          <span>Fresh Ingredients</span>
+        </div>
+
+        <div class="feature-item">
+          <span class="feature-emoji">🔥</span>
+          <span>Hand-Crushed Spices</span>
+        </div>
+
+        <div class="feature-item">
+          <span class="feature-emoji">❤️</span>
+          <span>Made with Love</span>
+        </div>
+
+        <div class="image-overlay-card">
+          <span class="overlay-number">500+</span>
+          <span class="overlay-text">Happy Customers Daily</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&q=80" alt="Chai Junction - Authentic Chai Experience">
+    </div>
+  </div>
+</section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="section alt-bg">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">☕ Our Menu</span>
+      <h2>Signature Offerings</h2>
+      <p class="section-subtitle">Handcrafted beverages and comfort food made fresh daily</p>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-icon">🍵</div>
+        <h3>Hot Chai</h3>
+        <ul>
+          <li><span>Masala Chai</span><span>₹40</span></li>
+          <li><span>Ginger Chai</span><span>₹35</span></li>
+          <li><span>Elaichi Chai</span><span>₹45</span></li>
+          <li><span>Kulhad Chai</span><span>₹50</span></li>
+          <li><span>Chocolate Chai</span><span>₹60</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-icon">🧊</div>
+        <h3>Cold Beverages</h3>
+        <ul>
+          <li><span>Iced Tea (Lemon)</span><span>₹80</span></li>
+          <li><span>Iced Tea (Peach)</span><span>₹85</span></li>
+          <li><span>Cold Coffee</span><span>₹90</span></li>
+          <li><span>Mango Iced Tea</span><span>₹95</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-icon">🥪</div>
+        <h3>Snacks & Bites</h3>
+        <ul>
+          <li><span>Bun Maska</span><span>₹50</span></li>
+          <li><span>Masala Maggi</span><span>₹80</span></li>
+          <li><span>Veg Sandwich</span><span>₹120</span></li>
+          <li><span>Biscuits (Assorted)</span><span>₹30</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section id="gallery" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">📸 Gallery</span>
+      <h2>Our Ambience & Offerings</h2>
+      <p class="section-subtitle">A peek into the Chai Junction experience</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?auto=format&fit=crop&w=800&q=80" alt="Fresh Masala Chai">
+        <div class="gallery-overlay"><h4>Fresh Masala Chai</h4></div>
+      </div>
+      <div class="gallery-item">
+        <img src="public/assets/traditional-khulad-chai.jpg" alt="Traditional Kulhad Chai">
+        <div class="gallery-overlay"><h4>Traditional Kulhad</h4></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1591189863430-ab87e120f312?auto=format&fit=crop&w=800&q=80" alt="Cozy Corner">
+        <div class="gallery-overlay"><h4>Cozy Corner</h4></div>
+      </div>
+      <div class="gallery-item">
+        <img src="public/assets/snacks-and-bites.jpg" alt="Snacks and Bites">
+        <div class="gallery-overlay"><h4>Delicious Snacks</h4></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS SECTION -->
+<section id="reviews" class="section alt-bg">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">💬 Reviews</span>
+      <h2>What Our Customers Say</h2>
+      <p class="section-subtitle">Real stories from those who’ve sipped happiness with us</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="quote-icon">“</div>
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer" class="review-avatar">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p>Absolutely love the Kulhad Chai! The aroma and taste take me back home every time. Perfect place to unwind.</p>
+        <h4>Priya S.</h4>
+      </div>
+
+      <div class="review-card">
+        <div class="quote-icon">“</div>
+        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer" class="review-avatar">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p>Their snacks are freshly made and delicious. Great ambiance and friendly staff. A must-visit!</p>
+        <h4>Rohit K.</h4>
+      </div>
+
+      <div class="review-card">
+        <div class="quote-icon">“</div>
+        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer" class="review-avatar">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p>I come here every evening after work. Their Ginger Chai is pure bliss and energizes me instantly!</p>
+        <h4>Anita R.</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
+  <!-- CONTACT SECTION -->
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+    <div class="contact-info">
+      <h2>Get In Touch</h2>
+      <p>Visit us for a warm cup of chai or reach out with any questions. We'd love to hear from you!</p>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-item-text">
+            <h4>Location</h4>
+            <p>Shop No. 15, MG Road, Barshi, Maharashtra</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-item-text">
+            <h4>Phone</h4>
+            <p>+91 98765 43210</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-item-text">
+            <h4>Email</h4>
+            <p>hello@chaijunction.in</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div class="contact-item-text">
+            <h4>Opening Hours</h4>
+            <p>Mon - Sun: 7:00 AM - 11:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-media">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <div class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram">
+          </div>
+          <div class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" alt="Facebook">
+          </div>
+          <div class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" alt="WhatsApp">
+          </div>
+          <div class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="LinkedIn">
+          </div>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <p>📍 Find us on the map - [Google Maps Integration]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    <p>© 2025 Chai Junction | Garam Chai. Local Vibes.</p>
+    <p style="margin-top: 0.4rem; font-size: 0.9rem; opacity: 0.7;">Made with ❤️ and a cup of chai</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div id="order-modal" class="modal">
+  <div class="modal-box">
+    <h3>🎉 Order Ahead!</h3>
+    <p>Online ordering is coming soon! For now, you can message us on WhatsApp or call us directly to place your order.</p>
+    <button class="btn-primary" onclick="closeOrder()">Got It!</button>
+  </div>
+</div>
+
+<!-- ✨ Modern Floating Chatbot Widget -->
+<!-- CHATBOT WIDGET -->
+<div id="chatbot-container" class="chatbot-container">
+  
+  <!-- FLOAT BUTTON -->
+  <button id="chatbot-toggle" class="chatbot-toggle">
+    <span class="icon-closed">💬</span>
+    <span class="icon-open">✖</span>
+  </button>
+
+  <!-- CHAT WINDOW -->
+  <div id="chatbot-window" class="chatbot-window">
+    
+    <div class="chatbot-header">
+      <h4>Chai Junction Assistant</h4>
+      <span class="chatbot-status">🟢 Online</span>
+      <button id="close-chatbot" class="close-chatbot-btn">✕</button>
+    </div>
+
+    <div id="chatbot-messages" class="chatbot-messages">
+      <div class="message bot-message">
+        Hello! I’m your assistant. Ask me anything ☕
+      </div>
+    </div>
+
+    <div class="chatbot-footer">
+      <button id="clear-chat" class="clear-btn">Clear</button>
+    </div>
+
+    <div class="chatbot-input-area">
+      <input type="text" id="user-input" placeholder="Ask something..." />
+      <button id="send-btn" class="btn-primary">Send</button>
+    </div>
+
+  </div>
+</div>
+
+
+  
+</body>
+</html>
