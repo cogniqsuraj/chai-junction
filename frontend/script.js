@@ -201,6 +201,33 @@ document.addEventListener("DOMContentLoaded", () => {
     userInput = document.getElementById("user-input");
     sendBtn = document.getElementById("send-btn");
 
+    // Mobile hamburger menu
+    const hamburger = document.getElementById("hamburger-menu");
+    const navMenu = document.getElementById("nav-menu");
+    
+    if(hamburger && navMenu) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        // Close menu when clicking on a link
+        navMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            }
+        });
+    }
+
     // Chatbot visibility toggle
     toggleBtn.addEventListener("click", () => {
         container.classList.toggle("open");
@@ -244,4 +271,20 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
         });
     }
+
+    // FAQ Accordion functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            // Toggle current item
+            item.classList.toggle('active');
+        });
+    });
 });

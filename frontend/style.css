@@ -169,6 +169,75 @@
       color: var(--chai-accent);
     }
 
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 101;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--chai-primary);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 0;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s ease;
+        z-index: 100;
+      }
+
+      .nav-menu.active {
+        right: 0;
+      }
+
+      .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid rgba(217, 106, 32, 0.1);
+      }
+
+      .nav-menu a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1.1rem;
+      }
+    }
+
     /* Hero Section */
     .hero-section {
       background-size: cover;
@@ -758,12 +827,14 @@
   color: #f4e7dc;
 }
 .review-avatar {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 3px solid var(--chai-accent, #D96A20);
   object-fit: cover;
   margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 .review-stars {
   color: #facc15;
@@ -793,6 +864,87 @@
   .section { padding: 4rem 1.5rem; }
   .section-header h2 { font-size: 2rem; }
   .gallery-item img { height: 200px; }
+}
+
+/* === FAQ SECTION === */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 4px 15px rgba(217, 106, 32, 0.15);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1.3rem 1.5rem;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--chai-primary);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  color: var(--chai-accent);
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--chai-accent);
+  transition: transform 0.3s ease;
+  min-width: 30px;
+  text-align: center;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding: 0 1.5rem 1.3rem 1.5rem;
+}
+
+.faq-answer p {
+  margin: 0;
+  color: var(--chai-dark);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .faq-question {
+    padding: 1.1rem 1.2rem;
+    font-size: 0.95rem;
+  }
+  
+  .faq-answer p {
+    font-size: 0.9rem;
+  }
 }
 
 /* === CONTACT SECTION === */
@@ -1007,7 +1159,13 @@
 .chatbot-container {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 5px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  gap: 5px;
+
   z-index: 9999;
   width: 320px;
   font-family: 'Poppins', sans-serif;
@@ -1325,6 +1483,69 @@
 .clear-btn:hover {
   background: rgba(217, 106, 32, 0.1);
   color: var(--chai-primary);
+}
+
+.whatsapp-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.whatsapp-float:hover::before {
+  opacity: 1;
+}
+
+/* === RESPONSIVE STYLES FOR FLOATING BUTTONS === */
+@media (max-width: 768px) {
+  .chatbot-container {
+    width: 280px;
+    right: 10px;
+    bottom: 75px;
+  }
+
+  .chatbot-toggle {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .chatbot-window {
+    width: 100%;
+    height: 380px;
+  }
+
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    right: 10px;
+    bottom: 15px;
+  }
+
+  .whatsapp-float svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chatbot-container {
+    width: calc(100vw - 20px);
+    right: 10px;
+    bottom: 70px;
+  }
+
+  .chatbot-window {
+    height: 350px;
+  }
+
+  .whatsapp-float {
+    right: 10px;
+    bottom: 10px;
+  }
 }
 
 /*************** TYPING INDICATOR ***************/

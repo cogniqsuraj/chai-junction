@@ -3,6 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Chai Junction - Authentic Indian chai & snacks in Barshi, Maharashtra. Fresh handcrafted masala chai, kulhad chai, and delicious snacks served daily 7 AM - 11 PM.">
+<meta name="keywords" content="chai, tea, masala chai, kulhad chai, Indian tea, Barshi cafe, tea shop, snacks, bun maska, coffee shop Maharashtra">
+<meta name="author" content="Chai Junction">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://chaijunction.in/">
+<meta property="og:title" content="Chai Junction - Garam Chai. Local Vibes.">
+<meta property="og:description" content="Experience authentic Indian chai at Chai Junction. Fresh handcrafted beverages and snacks in Barshi, Maharashtra.">
+<meta property="og:image" content="https://chaijunction.in/public/assets/bg-image.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://chaijunction.in/">
+<meta property="twitter:title" content="Chai Junction - Garam Chai. Local Vibes.">
+<meta property="twitter:description" content="Experience authentic Indian chai at Chai Junction. Fresh handcrafted beverages and snacks in Barshi, Maharashtra.">
+<meta property="twitter:image" content="https://chaijunction.in/public/assets/bg-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="public/assets/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="public/assets/apple-touch-icon.png">
+
 <title>Chai Junction - Garam Chai. Local Vibes.</title>
 <link rel="stylesheet" href="style.css">
 <script src="script.js" defer></script>
@@ -12,13 +35,19 @@
   <header class="header">
     <div class="header-content">
       <h1 class="logo">Chai Junction</h1>
+      <button class="hamburger" id="hamburger-menu" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav>
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="nav-menu">
           <li><a href="#hero">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#menu">Menu</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQs</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -171,27 +200,90 @@
 
     <div class="reviews-grid">
       <div class="review-card">
-        <div class="quote-icon">“</div>
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer" class="review-avatar">
+        <div class="quote-icon">"</div>
+        <img src="https://xsgames.co/randomusers/assets/avatars/female/1.jpg" alt="Customer" class="review-avatar">
         <div class="review-stars">⭐⭐⭐⭐⭐</div>
         <p>Absolutely love the Kulhad Chai! The aroma and taste take me back home every time. Perfect place to unwind.</p>
-        <h4>Priya S.</h4>
+        <h4>Priya Sharma</h4>
       </div>
 
       <div class="review-card">
-        <div class="quote-icon">“</div>
-        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer" class="review-avatar">
+        <div class="quote-icon">"</div>
+        <img src="https://xsgames.co/randomusers/assets/avatars/male/3.jpg" alt="Customer" class="review-avatar">
         <div class="review-stars">⭐⭐⭐⭐⭐</div>
         <p>Their snacks are freshly made and delicious. Great ambiance and friendly staff. A must-visit!</p>
-        <h4>Rohit K.</h4>
+        <h4>Rohit Kumar</h4>
       </div>
 
       <div class="review-card">
-        <div class="quote-icon">“</div>
-        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer" class="review-avatar">
+        <div class="quote-icon">"</div>
+        <img src="https://xsgames.co/randomusers/assets/avatars/female/5.jpg" alt="Customer" class="review-avatar">
         <div class="review-stars">⭐⭐⭐⭐⭐</div>
         <p>I come here every evening after work. Their Ginger Chai is pure bliss and energizes me instantly!</p>
-        <h4>Anita R.</h4>
+        <h4>Anita Rao</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section id="faq" class="section alt-bg">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">❓ FAQs</span>
+      <h2>Frequently Asked Questions</h2>
+      <p class="section-subtitle">Everything you need to know about Chai Junction</p>
+    </div>
+
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What are your operating hours?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>We're open 7 days a week from 7:00 AM to 11:00 PM. Come visit us anytime for your chai cravings!</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What makes your chai special?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Our chai is made with fresh milk, hand-crushed authentic spices, and premium tea leaves. We use traditional brewing methods to ensure every cup is perfect!</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Do you have seating arrangements?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely! We have a cozy indoor seating area perfect for enjoying your chai with friends or having a quiet moment alone.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Are vegetarian options available?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! All our snacks and food items are 100% vegetarian. We serve Bun Maska, Veg Sandwiches, Maggi, and more.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Can I book for events or catering?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! We provide catering services for events, parties, and corporate gatherings. Contact us at +91 98765 43210 to discuss your requirements.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -220,6 +312,14 @@
           <div class="contact-item-text">
             <h4>Phone</h4>
             <p>+91 98765 43210</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">💬</div>
+          <div class="contact-item-text">
+            <h4>WhatsApp</h4>
+            <p><a href="https://wa.me/919876543210?text=Hi%20Chai%20Junction!%20I'd%20like%20to%20know%20more%20about%20your%20menu." target="_blank" style="color: #25D366; text-decoration: none; font-weight: 500;">+91 98765 43210</a></p>
           </div>
         </div>
 
@@ -259,7 +359,15 @@
       </div>
 
       <div class="map-container">
-        <p>📍 Find us on the map - [Google Maps Integration]</p>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.123456789!2d75.69123456789!3d18.56789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDM0JzA0LjQiTiA3NcKwNDEnMjguNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" 
+          width="100%" 
+          height="100%" 
+          style="border:0; border-radius: 15px;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </div>
   </div>
@@ -318,7 +426,6 @@
 
   </div>
 </div>
-
 
   
 </body>
