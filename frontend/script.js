@@ -124,7 +124,7 @@ function appendMessage(type, text, sources = []) {
 function typingBubble() {
     const div = document.createElement("div");
     div.className = "message bot-message typing-indicator";
-    div.innerText = "🫖 Preparing your reply...";
+    div.innerText = "☕ Thinking...";
     return div;
 }
 
