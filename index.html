@@ -404,14 +404,15 @@
   <div id="chatbot-window" class="chatbot-window">
     
     <div class="chatbot-header">
-      <h4>Chai Junction Assistant</h4>
-      <span class="chatbot-status">🟢 Online</span>
+      <div class="header-left">
+        <h4>Chai Junction Assistant <span class="chatbot-status">● Online</span></h4>
+      </div>
       <button id="close-chatbot" class="close-chatbot-btn">✕</button>
     </div>
 
     <div id="chatbot-messages" class="chatbot-messages">
       <div class="message bot-message">
-        Hello! I’m your assistant. Ask me anything ☕
+        Hello! I'm your assistant. Ask me anything ☕
       </div>
     </div>
 
@@ -421,7 +422,12 @@
 
     <div class="chatbot-input-area">
       <input type="text" id="user-input" placeholder="Ask something..." />
-      <button id="send-btn" class="send-btn">Send</button>
+      <button id="send-btn" class="send-btn" aria-label="Send message">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
     </div>
 
   </div>
