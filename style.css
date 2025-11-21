@@ -1157,18 +1157,21 @@
 
 /* ====== CHATBOT CONTAINER ====== */
 .chatbot-container {
-  position: fixed;
-  bottom: 20px;
-  right: 5px;
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  gap: 5px;
-
-  z-index: 9999;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 5px !important;
+  z-index: 999999 !important;
   width: 320px;
   font-family: 'Poppins', sans-serif;
+  pointer-events: none;
+}
+
+.chatbot-container * {
+  pointer-events: auto;
 }
 
 /*************** FLOAT BUTTON ***************/
@@ -1502,22 +1505,28 @@
 /* === RESPONSIVE STYLES FOR FLOATING BUTTONS === */
 @media (max-width: 768px) {
   .chatbot-container {
-    width: 280px;
-    right: 10px;
-    bottom: 20px;
-    max-height: calc(100vh - 40px);
+    position: fixed !important;
+    width: 280px !important;
+    right: 15px !important;
+    bottom: 20px !important;
+    left: auto !important;
+    max-height: calc(100vh - 100px) !important;
+    z-index: 999999 !important;
+    align-items: flex-end !important;
+    display: flex !important;
   }
 
   .chatbot-toggle {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 24px !important;
+    display: flex !important;
   }
 
   .chatbot-window {
-    width: 100%;
-    height: 380px;
-    max-height: calc(100vh - 100px);
+    width: 100% !important;
+    height: 400px !important;
+    max-height: calc(100vh - 150px) !important;
   }
 
   .whatsapp-float {
@@ -1535,25 +1544,32 @@
 
 @media (max-width: 480px) {
   .chatbot-container {
-    width: calc(100vw - 20px);
-    right: 10px;
-    bottom: 20px;
-    left: 10px;
-    max-height: calc(100vh - 40px);
-  }
-
-  .chatbot-window {
-    height: 400px;
-    max-height: calc(100vh - 100px);
+    position: fixed !important;
+    width: 280px !important;
+    max-width: 90vw !important;
+    right: 10px !important;
+    bottom: 20px !important;
+    left: auto !important;
+    max-height: calc(100vh - 100px) !important;
+    z-index: 999999 !important;
+    align-items: flex-end !important;
+    display: flex !important;
   }
 
   .chatbot-toggle {
-    align-self: flex-end;
+    width: 60px !important;
+    height: 60px !important;
+    display: flex !important;
+  }
+
+  .chatbot-window {
+    height: 420px !important;
+    max-height: calc(100vh - 150px) !important;
   }
 
   .whatsapp-float {
-    right: 10px;
-    bottom: 10px;
+    right: 15px;
+    bottom: 90px;
   }
 }
 
