@@ -3,7 +3,7 @@
    ============================================================ */
 
 // Replaced previous API key/model setup with robust fetch logic for grounding
-const GEMINI_API_KEY = "AIzaSyAXKzFh7VyPN_ck56sj2G2eOReBbcfXSL0"; // Left empty for Canvas environment to provide
+const GEMINI_API_KEY = "AIzaSyBxoHUhaZK-bCZhF-I-t0prmBNokRpyXb8";
 const API_URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent";
 
 const systemInstruction = `
