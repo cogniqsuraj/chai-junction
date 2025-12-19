@@ -3,8 +3,7 @@
    ============================================================ */
 
 // Replaced previous API key/model setup with robust fetch logic for grounding
-const GEMINI_API_KEY = "AIzaSyBxoHUhaZK-bCZhF-I-t0prmBNokRpyXb8";
-const API_URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent";
+const API_URL_BASE = "https://wandering-credit-f6b8.cogniqsuraj.workers.dev";
 
 const systemInstruction = `
 You are the Chai Junction Assistant.
@@ -54,8 +53,8 @@ function parseResponse(result) {
 /**
  * Makes an API call with exponential backoff for retries.
  */
-async function fetchWithRetry(payload, maxRetries = 5, delay = 1000) {
-    const url = `${API_URL_BASE}?key=${GEMINI_API_KEY}`;
+async function fetchWithRetry(payload, maxRetries = 3, delay = 1000) {
+    const url = API_URL_BASE;
     let lastError = null;
 
     for (let i = 0; i < maxRetries; i++) {
@@ -67,22 +66,46 @@ async function fetchWithRetry(payload, maxRetries = 5, delay = 1000) {
             });
 
             if (!response.ok) {
-                const errorBody = await response.json();
-                throw new Error(`HTTP error! Status: ${response.status}. Details: ${JSON.stringify(errorBody)}`);
+                const errorText = await response.text();
+                let errorBody;
+                try {
+                    errorBody = JSON.parse(errorText);
+                } catch {
+                    errorBody = errorText;
+                }
+
+                console.error(`API Error (${response.status}):`, errorBody);
+
+                // Don't retry on client errors (4xx)
+                if (response.status >= 400 && response.status < 500) {
+                    throw new Error(`API Error: ${errorBody.error?.message || errorText || response.statusText}`);
+                }
+
+                throw new Error(`HTTP ${response.status}: ${errorBody.error?.message || response.statusText}`);
             }
 
-            return response.json();
+            const data = await response.json();
+            console.log("API Response received successfully");
+            return data;
 
         } catch (error) {
             lastError = error;
+            console.error(`Attempt ${i + 1}/${maxRetries} failed:`, error.message);
+
+            // Don't retry on client errors
+            if (error.message.includes('API Error:')) {
+                throw error;
+            }
+
             if (i < maxRetries - 1) {
+                console.log(`Retrying in ${delay}ms...`);
                 await new Promise(resolve => setTimeout(resolve, delay));
                 delay *= 2; // Exponential backoff
             }
         }
     }
     console.error("Failed to fetch after multiple retries:", lastError);
-    throw new Error("Failed to connect to the AI service.");
+    throw new Error(`Failed to connect to the AI service: ${lastError?.message || 'Unknown error'}`);
 }
 
 // --- Chat UI Functions ---
@@ -134,7 +157,7 @@ async function askGeminiWithGrounding(message) {
     const payload = {
         contents: [{ parts: [{ text: message }] }],
         // Enable Google Search grounding
-        tools: [{ "google_search": {} }],
+        tools: [{ "googleSearch": {} }],
         // Use the existing persona/shop details
         systemInstruction: {
             parts: [{ text: systemInstruction }]
@@ -146,7 +169,18 @@ async function askGeminiWithGrounding(message) {
         return parseResponse(result); // Returns {text, sources}
     } catch (err) {
         console.error("Error asking Gemini:", err);
-        return { text: "⚠️ Unable to connect to the AI service. Please check your network or try again later.", sources: [] };
+
+        // Provide more specific error messages
+        let errorMessage = "⚠️ Unable to connect to the AI service. ";
+        if (err.message.includes('API Error')) {
+            errorMessage += "API Error: " + err.message.split('API Error:')[1];
+        } else if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
+            errorMessage += "Please check your internet connection.";
+        } else {
+            errorMessage += "Please try again later.";
+        }
+
+        return { text: errorMessage, sources: [] };
     }
 }
 
@@ -186,11 +220,11 @@ async function handleSend() {
 // --- Event Listeners and Init ---
 
 function openOrder() {
-  document.getElementById('order-modal').classList.add('open');
+    document.getElementById('order-modal').classList.add('open');
 }
 
 function closeOrder() {
-  document.getElementById('order-modal').classList.remove('open');
+    document.getElementById('order-modal').classList.remove('open');
 }
 
 // Init after DOM loaded
@@ -204,8 +238,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Mobile hamburger menu
     const hamburger = document.getElementById("hamburger-menu");
     const navMenu = document.getElementById("nav-menu");
-    
-    if(hamburger && navMenu) {
+
+    if (hamburger && navMenu) {
         hamburger.addEventListener("click", () => {
             hamburger.classList.toggle("active");
             navMenu.classList.toggle("active");
@@ -232,14 +266,14 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleBtn.addEventListener("click", () => {
         container.classList.toggle("open");
         messages.scrollTop = messages.scrollHeight;
-        if(container.classList.contains("open")) {
+        if (container.classList.contains("open")) {
             userInput.focus();
         }
     });
 
     // Close button functionality
     const closeBtn = document.getElementById("close-chatbot");
-    if(closeBtn) {
+    if (closeBtn) {
         closeBtn.addEventListener("click", () => {
             container.classList.remove("open");
         });
@@ -258,13 +292,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Handle 'Order Ahead' button click
     const orderBtn = document.getElementById('order-btn');
-    if(orderBtn) {
+    if (orderBtn) {
         orderBtn.addEventListener('click', openOrder);
     }
 
     // Handle 'Clear Chat' button click
     const clearChat = document.getElementById("clear-chat");
-    if(clearChat) {
+    if (clearChat) {
         clearChat.addEventListener("click", () => {
             messages.innerHTML = `
               <div class="message bot-message">Chat cleared. How can I help you? ☕</div>
